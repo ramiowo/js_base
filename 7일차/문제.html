@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // *문제
+        // =>배열 생성 -> 배열내부에 객체 4개 생성
+        // =>객체 내부에는 고유값, 아이디, 이메일, 프사
+        // =>배열에 저장된 4명의 유저를 브라우저에 출력하기(반복문 사용)
+
+        // const userId = [1,2,3,4];
+        // const userName = ["라미","정현","현아","민주"];
+        // const userImail = ["rami@naver.com","jh@naver.com","ha@naver.com","mj@naver.com"];
+        // const userFrofile = ["rm.jpg","jh.jpg","ha.jpg","mj.jpg"];
+
+        // for(let i = 0; i < 4; i++){
+        //     document.write(`<h2>${userId[i]}번째 유저</h2>아이디:${userName[i]}<br>이메일:${userImail[i]}<br>프사:${userFrofile[i]}<br><br>`);
+        // }
+
+        // const userInfo = [
+        //     a = {
+        //         userId: 0,
+        //         userName: "라미",
+        //         userImail:"rami@naver.com",
+        //         userFrofile:"rm.jpg"
+        //     },
+        //     b = {
+        //         userId: 1,
+        //         userName: "정현",
+        //         userImail:"jh@naver.com",
+        //         userFrofile:"jh.jpg"
+        //     },
+        //     c = {
+        //         userId: 2,
+        //         userName: "현아",
+        //         userImail:"ha@naver.com",
+        //         userFrofile:"ha.jpg"
+        //     },
+        //     d = {
+        //         userId: 3,
+        //         userName: "민주",
+        //         userImail:"mj@naver.com",
+        //         userFrofile:"mj.jpg"
+        //     }
+        // ];
+
+        // for(let i = 0; i < 4; i++){
+        //     document.write(`<h2>${userId}번째 유저</h2> ${a}`);
+        // }
+
+        const users = [
+            {
+                id:0,
+                username: "rm",
+                email:"rm@ra.com",
+                avatar:"rm.jpg"
+            },
+            {
+                id:1,
+                username: "rm1",
+                email:"rm1@ra.com",
+                avatar:"rm1.jpg"
+            },
+            {
+                id:2,
+                username: "rm2",
+                email:"rm2@ra.com",
+                avatar:"rm2.jpg"
+            },
+            {
+                id:3,
+                username: "rm3",
+                email:"rm3@ra.com",
+                avatar:"rm3.jpg"
+            }
+        ];
+
+        for(let i = 0; i < users.length; i++){
+            document.write(`${users[i].id}번째 유저<br>`);
+            document.write(`아이디: ${users[i].username}<br>`);
+            document.write(`이메일: ${users[i].email}<br>`);
+            document.write(`프사: ${users[i].avatar}<br><br>`);
+        }
+
+        // document.write(`${users[0].id}번째 유저<br>`);
+        // document.write(`아이디: ${users[0].username}`);
+        // document.write(`이메일: ${users[0].email}`);
+        // document.write(`프사: ${users[0].avatar}`);
+
+
+
+
+
+
+
+        
+
+        
+
+           
+        
+
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

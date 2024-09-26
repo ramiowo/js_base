@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+     <script>
+
+        const inputNum = Number(prompt("숫자를 입력하세요."));
+        const num_2 = (inputNum % 2);
+
+        if(num_2 === 0){
+            for(let i = 1; i < 9 ; i++){
+                document.write(`${inputNum}x ${i+++1} = ${inputNum*i} <br>`);
+            }
+        }else if(num_2 === 1){
+            for(let i = 1; i < 10 ; i++){
+                document.write(`${inputNum}x ${++i-1} = ${inputNum*i} <br>`);
+            }
+        }else{
+            document.write("입력한값이 숫자가 아닙니다.");
+        }
+
+        // const inputNum = Number(prompt("숫자를 입력하세요."));
+        // const num_2 = (inputNum % 2);
+
+        // if(num_2 === 0){
+        //     document.write(`${inputNum}단<br>`)
+        //     for(let i = 2; i < 10 ; i += 2){
+        //         document.write(`${inputNum}x ${i} = ${inputNum*i} <br>`);
+        //     }
+        // }else if(num_2 === 1){
+        //     document.write(`${inputNum}단<br>`)
+        //     for(let i = 1; i < 10; i += 2){
+        //         document.write(`${inputNum}x${i}=${inputNum*i}<br>`);
+        //     }
+            
+        // }else{
+        //     document.write("입력한값이 숫자가 아닙니다.");
+        // }
+    </script>
+</head>
+<body>
+</body>
+</html>

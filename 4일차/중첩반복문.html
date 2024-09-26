@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        // *중첩반복문
+        // =>반복문 안에 반복문 작성
+        // =>부모 반복문이 한번 출력되면 자식 반복문이 전체 순회함
+
+        // for(let i = 0; i < 4; i++ ){
+        //     document.write(`<h3>${i}</h3>`);
+        //     for(let o = 4; o < 7; o++){
+        //         document.write(o);
+        //     }
+            
+        // }
+
+
+
+        for(let i = 1; i < 10; i++){
+            document.write(`<h3>${i}단<br></h3>`);
+            for(let n = 1; n < 10; n++){
+                document.write(`${i}x${n}=${i*n}<br>`);
+            }
+        }
+
+        // for(let i =1; i < 10; i++){
+        //     document.write(`<h3>${i}단<br></h3>`);
+        //     for(let n = 1; n <10; n++){
+        //         document.wrtie(`${i}x${n}=${i*n}<br>`);
+        //     }
+        // }
+
+        
+
+      
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

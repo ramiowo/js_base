@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+        // *함수(function)
+        // =>프로그래밍 언어에서 기능을 뜻함
+        // =>함수를 사용할땐 반드시 호출을 해줘야함
+
+        // *선언적 함수
+        // =>이름이 있는 함수
+        // =>선언적 함수는 정의한 함수 앞에 호출해도 사용가능
+        // =>우선순위가 가장 높음
+
+        // function intro(){
+        //     document.write("10000000000000000000000줄 짜리 코드")
+        // };
+        // intro();
+
+
+        // *익명 함수
+        // =>이름이 없는 함수
+        // =>반드시 함수 정의 이후 호출하여 사용할것
+        
+        // const intro = function(){
+        //     document.write("익명함수");
+        // };
+        // intro();
+
+        // const intro = function(){
+        //     document.write("안녕 내이름은 예람이야 나이는 26살 이야<br>");
+        // };
+        
+        // intro();
+
+        // *매개변수
+        // =>함수내부에 사용하는 변수로 전달하는 목적을 가지고 있음
+        // =>매개변수는 함수 소괄호 안에 들어가며, 콤마를 이용하여 여러개 작성 가능
+        // =>함수 호출할때 전달하고싶은 값을 넣어줌
+
+        // const intro = function(name, age){
+        //     document.write(`안녕 내이름은 ${name}이야 나이는 ${age}살 이야`);
+        // };
+
+        // intro("예람", 26);
+
+        // *화살표 함수
+        // =>익명함수와 동일하지만 화살표 문법으로 표현됨
+
+        // const intro = (name, age) => {
+        //     document.write(`이름 : ${name}<br> `);
+        //     document.write(`나이 : ${age} `);
+        // };
+
+        // intro("예람", 26);
+
+
+
+        const userInfo = {
+            id:0,
+            username: "test",
+            password: "123"
+        }
+
+        const userNameInput = prompt("아이디를 입력해주세요");
+        const passwordInput = prompt("패스워드를 입력해주세요");
+
+        if(userNameInput !== userInfo.username){
+            document.write("아이디가 틀렸습니다.");
+        }else if(passwordInput !== userInfo.password){
+            document.write("패스워드가 틀렸습니다");
+        }else{
+            alert("로그인 되었습니다")
+            document.write(`${userInfo.username}님 환영합니다`);
+        }
+
+
+        
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

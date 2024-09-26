@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .con{
+            width: 500px;
+            height: 100px;
+            border: 1px solid cadetblue;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="con_wrap"></div>
+
+    <script>
+       
+        
+        const data = [
+            {
+                id:0,
+                title:"title1",
+                desc:"객체 내부에 함수를 만들수 있는데 이때 만들어진 함수를 메서드 라고 함"
+            },
+            {
+                id:1,
+                title:"title2",
+                desc:"객체 내부에 함수를 만들수 있는데 이때 만들어진 함수를 메서드 라고 함"
+                
+            },
+            {
+                id:2,
+                title:"title3",
+                desc:"객체 내부에 함수를 만들수 있는데 이때 만들어진 함수를 메서드 라고 함"
+            },
+            
+        ];
+
+        const wrap = document.querySelector('.con_wrap');
+
+        wrap.classList.add('con_wrap');
+
+        for(let i = 0; i < data.length; i++){
+            const conEl = document.createElement('div');
+            const titleEl = document.createElement('h3');
+            const descEl = document.createElement('p');
+            conEl.classList.add('con');
+
+            titleEl.innerText = data[i].title;
+            descEl.innerText = data[i].desc;
+            conEl.append(titleEl);
+            conEl.append(descEl);
+            console.log(conEl);
+
+            wrap.append(conEl);
+        }
+
+        
+
+
+
+
+    </script>
+    
+</body>
+</html>

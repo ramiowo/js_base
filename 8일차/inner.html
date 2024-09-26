@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="box"></div>
+
+    <script>
+
+        const boxEl  = document.querySelector(`.box`);
+
+        // boxEl.innerText = "폰트 사이즈";
+        // =>태그에 내용을 넣을때 사용
+
+        // boxEl.innerHTML  = "카라멜 마끼아또";
+        // =>내용 뿐 아니라, 태그도 적용됨
+
+        // boxEl.innerText = "<h2>안녕</h2>";
+        boxEl.innerHTML = "<h2>??</h2>";
+
+    </script>
+</body>
+</html>
