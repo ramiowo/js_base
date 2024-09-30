@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .wrap{
+            width: 100%;
+            height: 100vh;
+        }
+
+        .con{
+            width: 500px;
+            height: 400px;
+            border-radius: 10px;
+            border: 3px solid rgb(119, 136, 153,0.5);
+            margin: 0 auto;
+            margin-bottom: 30px;
+        }
+
+        .profile{
+            width: 500px;
+            height: 65px;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            font-size: 20px;
+            font-weight: 500;
+            color: #313131;
+        }
+
+        .profile img{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin: 0 20px 0 20px;
+            object-fit: cover;
+        }
+
+        .in_img{
+            width: 494px;
+            height: 260px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .in_img1{
+            background-image: url(https://i.namu.wiki/i/01BGGsoIcseAEJ26o4iolmU3I8xTiSZt8fD_vKs20ENbNnXlPAhLczi9YpxA6x0biFVE_NQV9CNWhkJTmee_1g.webp);
+        }
+
+        .in_img2{
+            background-image: url(https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/guest/image/fpwmc0qgd7Pkg6X1-_pHMpoNAHE.JPG);
+        }
+
+        .in_img3{
+            background-image: url(https://file.newswire.co.kr/data/datafile2/thumb_480/2007/10/2007102311931161020.81878800.jpg );
+        }
+
+        .like{
+            width: 100%;
+            height: 65px;
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+        }
+
+       
+    </style>
+</head>
+<body>
+    
+    <div class="wrap">
+        <div class="con">
+            <div class="profile">
+                <img src="https://prodigits.co.uk/thumbs/wallpapers/p2/drawings/28/d25cbed912401516.jpg" alt="totoro">
+                <div class="name">Totoro</div>
+            </div>
+
+            <div class="in_img_wrap">
+                <div class="in_img in_img1"></div>
+            </div>
+
+            <div class="like">
+                <i class="fa-regular fa-heart"></i>
+            </div>
+        </div>
+        
+        <div class="con">
+            <div class="profile">
+                <img src="https://i.pinimg.com/736x/2a/9c/0b/2a9c0bc5aaf2e6c8c26416ad03dcc6cc.jpg" alt="Calcifer">
+                <div class="name">Calcifer</div>
+            </div>
+            
+            <div class="in_img_wrap">
+                <div class="in_img in_img2"></div>
+            </div>
+
+            <div class="like">
+                <i class="fa-regular fa-heart"></i>
+            </div>
+        </div>
+
+        <div class="con">
+            <div class="profile">
+                <img src="https://i.namu.wiki/i/ja3KaNWwMqRU1PtwyLI2mZG8zS9rfFawEkR_Wh2-aucLIMeZaf-bz_QuU2D8wQaaI7ztXB8rCGvUmyoEINgVBA.webp" alt="kiki">
+                <div class="name">Kiki</div>
+            </div>
+            
+            <div class="in_img_wrap">
+                <div class="in_img in_img3"></div>
+            </div>
+            
+            <div class="like">
+                <i class="fa-regular fa-heart"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- 꽉찬 하트 <i class="fa-solid fa-heart"></i> -->
+</body>
+</html>
