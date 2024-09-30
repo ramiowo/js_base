@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        userList = [
+            {
+                id:0,
+                name:'Totoro',
+                like:Number(150)
+            },
+            {
+                id:0,
+                name:'Kiki',
+                like:Number(0)
+            },
+        ]
+
+
+
+        const likeEl = () => {
+                    const clickHandler = () => {
+                    likeEl.classList.toggle('fa-solid');
+                    likeEl.classList.toggle('fa-regular');
+                    if(likeEl.classList.contains('fa-solid')){
+                        numEl.innerText = num += 1;
+                    }else{
+                        numEl.innerText = num -= 1;
+                    }
+                }
+
+                likeEl.addEventListener("click", clickHandler);
+                }
+
+                
+                for(let i = 0; i < menus.length; i++){
+            const menuEl = document.createElement('div');
+            menuEl.classList.add('menu');
+            menuEl.innerHTML = `<a href="${menus[i].url}">${menus[i].title}</a>`;
+            menuWrapEl.append(menuEl);
+        }
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .wrap{
+            width: 100%;
+            height: 100vh;
+        }
+
+        .con{
+            width: 500px;
+            height: 450px;
+            border-radius: 10px;
+            border: 2px solid rgba(214, 214, 214, 0.5);
+            margin: 0 auto;
+            margin-bottom: 30px;
+        }
+
+        .profile{
+            width: 500px;
+            height: 65px;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            font-size: 20px;
+            font-weight: 500;
+            color: #313131;
+        }
+
+        .profile_img{
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin: 0 20px 0 20px;
+            object-fit: cover;
+        }
+
+        .feed_img{
+            width: 494px;
+            height: 260px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .like{
+            width: 100%;
+            height: 65px;
+            display: flex;
+            align-items: center;
+        }
+
+        .like i{
+            margin: 0 10px 0 20px;
+        }
+
+        .sub_text{
+            margin-left: 20px;
+        }
+
+
+       
+    </style>
+</head>
+<body>
+
+    <div class="wrap"></div>
+    
+    <!-- <div class="wrap">
+        <div class="con">
+            <div class="profile">
+                <img class = profile_img src="https://prodigits.co.uk/thumbs/wallpapers/p2/drawings/28/d25cbed912401516.jpg" alt="totoro">
+                <div class="name">Totoro</div>
+            </div>
+
+            <div class="in_img_wrap">
+                <img class= "in_img in_img1" src="https://i.namu.wiki/i/01BGGsoIcseAEJ26o4iolmU3I8xTiSZt8fD_vKs20ENbNnXlPAhLczi9YpxA6x0biFVE_NQV9CNWhkJTmee_1g.webp" alt="feed_img">
+            </div>
+
+            <div class="like">
+                <i class="fa-regular fa-heart"></i>
+                <span>좋아요<span class="number">0</span>개</span>
+                
+            </div>
+        </div>
+        
+        <div class="con">
+            <div class="profile">
+                <img class = profile_img src="https://i.pinimg.com/736x/2a/9c/0b/2a9c0bc5aaf2e6c8c26416ad03dcc6cc.jpg" alt="Calcifer">
+                <div class="name">Calcifer</div>
+            </div>
+            
+            <div class="in_img_wrap">
+                <img class= "in_img in_img2" src="https://i.namu.wiki/i/01BGGsoIcseAEJ26o4iolmU3I8xTiSZt8fD_vKs20ENbNnXlPAhLczi9YpxA6x0biFVE_NQV9CNWhkJTmee_1g.webp" alt="feed_img">
+            </div>
+
+            <div class="like">
+                <i class="fa-regular fa-heart"></i>
+                <span>좋아요</span>
+                <span class="number"></span>
+            </div>
+        </div>
+
+        <div class="con">
+            <div class="profile">
+                <img src="https://i.namu.wiki/i/ja3KaNWwMqRU1PtwyLI2mZG8zS9rfFawEkR_Wh2-aucLIMeZaf-bz_QuU2D8wQaaI7ztXB8rCGvUmyoEINgVBA.webp" alt="kiki">
+                <div class="name">Kiki</div>
+            </div>
+            
+            <div class="in_img_wrap">
+                <img class= "in_img in_img3" src="https://i.namu.wiki/i/01BGGsoIcseAEJ26o4iolmU3I8xTiSZt8fD_vKs20ENbNnXlPAhLczi9YpxA6x0biFVE_NQV9CNWhkJTmee_1g.webp" alt="feed_img">
+            </div>
+            
+            <div class="like">
+                <i class="fa-regular fa-heart"></i>
+                <span>좋아요</span>
+                <span class="number"></span>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- 꽉찬 하트 <i class="fa-solid fa-heart"></i> -->
+
+    <script>
+
+        const userList = [
+            {
+                id:0,
+                profileImg: "https://i.namu.wiki/i/01BGGsoIcseAEJ26o4iolmU3I8xTiSZt8fD_vKs20ENbNnXlPAhLczi9YpxA6x0biFVE_NQV9CNWhkJTmee_1g.webp",
+                name:'Totoro',
+                feedImg:"https://i.namu.wiki/i/01BGGsoIcseAEJ26o4iolmU3I8xTiSZt8fD_vKs20ENbNnXlPAhLczi9YpxA6x0biFVE_NQV9CNWhkJTmee_1g.webp",
+                like:Number(0),
+                subText:`친구들이랑 나들이`
+            },
+            {
+                id:1,
+                profileImg:"https://i.pinimg.com/736x/2a/9c/0b/2a9c0bc5aaf2e6c8c26416ad03dcc6cc.jpg",
+                name:'Calcifer',
+                feedImg:"https://mblogthumb-phinf.pstatic.net/MjAxODA1MjdfMTUx/MDAxNTI3NDIzODQ2MDU0.xgp0tOKeaXLfzQe8fAFfeAJLMaZW6Alspf05nMiGRSUg.O6FZJVUUk06jY2Wo4n-Xm180Ak4C25haloH3JsAJTCQg.PNG.polarisians/2.png?type=w800",
+                like:Number(0),
+                subText:`오늘의 요리솜씨`
+            },
+            {
+                id:2,
+                profileImg:'url()',
+                name:'Kiki',
+                feedImg:'url()',
+                like:Number(0),
+                subText:`안녕하세요`
+            },
+            {
+                id:3,
+                profileImg:'url()',
+                name:'Totoro',
+                feedImg:'url()',
+                like:Number(0),
+                subText:`안녕하세요`
+            },
+            {
+                id:4,
+                profileImg:'url()', 
+                name:'Totoro',
+                feedImg:'url()',
+                like:Number(0),
+                subText:`안녕하세요`
+                
+            }
+        ];
+
+        const wrapEl = document.querySelector('.wrap');
+
+        // const conEl = document.createElement('div');
+        // conEl.classList.add('con');
+        // wrapEl.append(conEl);
+
+        // const profileEl = document.createElement('div');
+        // profileEl.classList.add('profile');
+        // conEl.append(profileEl);
+
+        // const profileImg = document.createElement('img');
+        // profileImg.classList.add('profile_img');
+        // profileEl.append(profileImg);
+
+        // const nameEl = document.createElement('div');
+        // nameEl.classList.add('name');
+        // profileEl.append(nameEl);
+
+        // const feedImg = document.createElement('img');
+        // feedImg.classList.add('feed_img');
+        // conEl.append(feedImg);
+
+        // const likeEl = document.createElement('div');
+        // likeEl.classList.add('like');
+        // conEl.append(likeEl);
+
+        // const likeIcon = document.createElement('i');
+        // likeIcon.classList.add('fa-regular');
+        // likeIcon.classList.add('fa-heart');
+        // likeEl.append(likeIcon);
+
+        // const likeText = document.createElement('span');
+        // likeText.classList.add('like_text');
+        // likeEl.append(likeText);
+
+        // const likeNumber = document.createElement('span');
+        // likeNumber.classList.add('number');
+        // likeText.append(likeNumber);
+
+        
+        for(let i = 0; i < userList.length; i++){
+
+            const conEl = document.createElement('div');
+            conEl.classList.add('con');
+            wrapEl.append(conEl);
+
+            const profileEl = document.createElement('div');
+            profileEl.classList.add('profile');
+            conEl.append(profileEl);
+
+            const profileImg = document.createElement('img');
+            profileImg.classList.add('profile_img');
+            profileEl.append(profileImg);
+
+            const nameEl = document.createElement('div');
+            nameEl.classList.add('name');
+            profileEl.append(nameEl);
+
+            const feedImg = document.createElement('div');
+            feedImg.classList.add('feed_img');
+            conEl.append(feedImg);
+
+            const likeEl = document.createElement('div');
+            likeEl.classList.add('like');
+            conEl.append(likeEl);
+
+            const likeIcon = document.createElement('i');
+            likeIcon.classList.add('fa-regular');
+            likeIcon.classList.add('fa-heart');
+            likeEl.append(likeIcon);
+
+            const likeText = document.createElement('span');
+            likeText.classList.add('like_text');
+            likeEl.append(likeText);
+
+            const likeNumber = document.createElement('span');
+            likeNumber.classList.add('number');
+            likeText.append(likeNumber);
+
+            const subText = document.createElement('div');
+            subText.classList.add('sub_text');
+            conEl.append(subText);
+
+            profileEl.innerHTML = `<img class = "profile_img" src = "${userList[i].profileImg}"> <div class = "name">${userList[i].name}</div>`;
+            feedImg.innerHTML = `<img class = "feed_img" src = "${userList[i].feedImg}"> `;
+            likeText.innerHTML = `좋아요${userList[i].like}개`;
+            subText.innerHTML = `${userList[i].name} ${userList[i].subText}`;
+            
+            
+          likeIcon.addEventListener('click', function () {
+            
+            if (likeIcon.classList.contains('fa-solid')) {
+                userList[i].like--;  
+            } else {
+                userList[i].like++;  
+            };
+
+            likeIcon.classList.toggle('fa-solid');
+            likeIcon.classList.toggle('fa-regular');
+            
+            likeText.innerHTML = `좋아요 ${userList[i].like}개`;
+        });
+
+          
+
+
+        }
+
+         //     likeIcon.addEventListener('click', function () {
+        //     if (userList[i].isLiked) {
+        //         userList[i].like--;  // 좋아요 감소
+        //         likeIcon.classList.remove('fa-solid'); // 채워진 하트 제거
+        //         likeIcon.classList.add('fa-regular');  // 빈 하트로 변경
+        //     } else {
+        //         userList[i].like++;  // 좋아요 증가
+        //         likeIcon.classList.remove('fa-regular'); // 빈 하트 제거
+        //         likeIcon.classList.add('fa-solid'); // 채워진 하트로 변경
+        //     }
+        //     userList[i].isLiked = !userList[i].isLiked;  // 상태 변경
+        //     likeText.innerHTML = `좋아요 ${userList[i].like}개`;  // 좋아요 갱신
+        // });
+
+
+        // likeIcon.addEventListener('click', function () {
+        //     // 하트 아이콘이 채워져 있는지 여부로 상태를 판단
+        //     if (likeIcon.classList.contains('fa-solid')) {
+        //         userList[i].like--;  // 좋아요 감소
+        //     } else {
+        //         userList[i].like++;  // 좋아요 증가
+        //     }
+
+        //     // 하트 아이콘 클래스 토글 (채워진 하트와 빈 하트)
+        //     likeIcon.classList.toggle('fa-solid');
+        //     likeIcon.classList.toggle('fa-regular');
+
+        //     // 좋아요 갯수 업데이트
+        //     likeText.innerHTML = `좋아요 ${userList[i].like}개`;
+        // });
+
+        
+        // const clickHandler = () => {
+        //     let num = 0;
+        //     likeIcon.classList.toggle('fa-solid');
+        //     likeIcon.classList.toggle('fa-regular');
+        //     if(likeIcon.classList.contains('fa-solid')){
+        //         likeNumber.innerText = userList[i].like += 1;
+        //     }else{
+        //         likeNumber.innerText = num -= 1;
+        //     }
+        //     }
+
+        //     likeIcon.addEventListener("click", clickHandler);
+
+
+
+        
+
+        // for(let i = 0; i < userList.length; i++){
+        //     conEl[i].innerHTML = userList[i].profileImg;
+        //     menuEl.classList.add('menu');
+        //     menuEl.innerHTML = `<a href="${menus[i].url}">${menus[i].title}</a>`;
+        //     menuWrapEl.append(menuEl);
+        // }   
+
+
+        // const conEl = document.querySelector('.con');
+        // const likeEl = document.querySelector('.fa-regular');
+        // const numEl = document.querySelector('.number');
+        // let num = 0;
+
+        // const clickHandler = () => {
+        //     likeEl.classList.toggle('fa-solid');
+        //     likeEl.classList.toggle('fa-regular');
+        //     if(likeEl.classList.contains('fa-solid')){
+        //         numEl.innerText = num += 1;
+        //     }else{
+        //         numEl.innerText = num -= 1;
+        //     }
+        // }
+
+        // likeEl.addEventListener("click", clickHandler);
+
+        // const clickHandler = () => {
+        //     likeIcon.classList.toggle('fa-solid');
+        //     likeIcon.classList.toggle('fa-regular');
+        //     if(likeIcon.classList.contains('fa-solid')){
+        //         likeNumber.innerText = num += 1;
+        //     }else{
+        //         likeNumber.innerText = num -= 1;
+        //     }
+        // }
+
+        // likeIcon.addEventListener("click", clickHandler);
+
+    </script>
+</body>
+</html>

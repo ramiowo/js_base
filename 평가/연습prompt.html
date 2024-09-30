@@ -73,21 +73,23 @@
             margin: 0 10px 0 20px;
         }
 
-        .subText_name{
-            font-size: 17px;
-            font-weight: 600;
-        }
-
         .sub_text{
             margin-left: 20px;
         }
 
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+        }
 
     </style>
 </head>
 <body>
 
-    <div class="wrap"></div>
+    <div class="wrap">
+        <button id="addUserButton">새로운 유저 추가</button>
+    </div>
 
     <script>
 
@@ -114,7 +116,7 @@ const userList = [
                 name:'Kiki',
                 feedImg:"https://cphoto.asiae.co.kr/listimglink/1/2023042114592697183_1682056766.jpg",
                 like:195,
-                subText:`빗자루 새로 뽑았어요.`
+                subText:`빗자루 새로 뽑았어요`
             },
             {
                 id:3,
@@ -181,14 +183,12 @@ const userList = [
         const subText = document.createElement('div');
         subText.classList.add('sub_text');
         conEl.append(subText);
-      
+
+        
         profileEl.innerHTML = `<img class = "profile_img" src = "${userList[i].profileImg}"> <div class = "name">${userList[i].name}</div>`;
         feedImg.innerHTML = `<img class = "feed_img" src = "${userList[i].feedImg}">`;
         likeText.innerHTML = `좋아요 ${userList[i].like}개`;
-        const nameSpan = `<span class="subText_name">${userList[i].name}</span>`;
-        subText.innerHTML = `${nameSpan} ${userList[i].subText}`;
-
-      
+        subText.innerHTML = `${userList[i].name} ${userList[i].subText}`;
 
 
         likeIcon.addEventListener('click', function () {
@@ -208,7 +208,7 @@ const userList = [
 
         feedImg.addEventListener('click', function () {
 
-        if (likeIcon.classList.contains('fa-solid')) {
+        if (feedImg.classList.contains('fa-solid')) {
             userList[i].like--;  
         } else {
             userList[i].like++;  
@@ -223,6 +223,90 @@ const userList = [
         // ------피드이미지 클릭시 색상,좋아요갯수 변경 한번더 클릭시 색상,좋아요갯수 감소------
 
         }
+
+        const clickHandler = (user, likeIcon, likeText) => {
+        if (likeIcon.classList.contains('fa-solid')) {
+            user.like--;  
+        } else {
+            user.like++;  
+        }
+
+        likeIcon.classList.toggle('fa-solid');
+        likeIcon.classList.toggle('fa-regular');
+        likeText.innerHTML = `좋아요 ${user.like}개`;
+    };
+
+    const addUser = () => {
+        const name = prompt('이름을 입력하세요');
+        const profileImg = prompt('프로필 이미지 URL을 입력하세요');
+        const feedImg = prompt('피드 이미지 URL을 입력하세요');
+        const subText = prompt('서브 텍스트를 입력하세요');
+
+        const newUser = {
+            id: userList.length,
+            profileImg: profileImg || '', 
+            name: name || 'Anonymous', 
+            feedImg: feedImg || '',
+            like: 0,
+            subText: subText || ''
+        };
+
+        userList.push(newUser);
+        renderUser(newUser);
+    };
+
+    const renderUser = (user) => {
+        const conEl = document.createElement('div');
+        conEl.classList.add('con');
+        wrapEl.append(conEl);
+
+        const profileEl = document.createElement('div');
+        profileEl.classList.add('profile');
+        conEl.append(profileEl);
+
+        const profileImg = document.createElement('img');
+        profileImg.classList.add('profile_img');
+        profileEl.append(profileImg);
+
+        const nameEl = document.createElement('div');
+        nameEl.classList.add('name');
+        profileEl.append(nameEl);
+
+        const feedImg = document.createElement('div');
+        feedImg.classList.add('feed_img');
+        conEl.append(feedImg);
+
+        const likeEl = document.createElement('div');
+        likeEl.classList.add('like');
+        conEl.append(likeEl);
+
+        const likeIcon = document.createElement('i');
+        likeIcon.classList.add('fa-regular', 'fa-heart');
+        likeEl.append(likeIcon);
+
+        const likeText = document.createElement('span');
+        likeText.classList.add('like_text');
+        likeEl.append(likeText);
+
+        const subText = document.createElement('div');
+        subText.classList.add('sub_text');
+        conEl.append(subText);
+
+        profileEl.innerHTML = `<img class="profile_img" src="${user.profileImg}"> <div class="name">${user.name}</div>`;
+        feedImg.innerHTML = `<img class="feed_img" src="${user.feedImg}">`;
+        likeText.innerHTML = `좋아요 ${user.like}개`;
+        subText.innerHTML = `${user.name} ${user.subText}`;
+
+        likeIcon.addEventListener('click', () => clickHandler(user, likeIcon, likeText));
+        feedImg.addEventListener('click', () => clickHandler(user, likeIcon, likeText));
+    };
+
+    userList.forEach(user => renderUser(user));
+
+    // 버튼 클릭 시 새로운 유저 추가
+    document.getElementById('addUserButton').addEventListener('click', addUser);
+
+
         
 
 
