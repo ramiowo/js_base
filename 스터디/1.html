@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상자 색 변경</title>
+    <style>
+        .box {
+            width: 150px;
+            height: 150px;
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+            line-height: 100px;
+            border: 2px solid black;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        /* 기본 상자 색상 */
+        .red-text { color: red; }
+        .blue-text { color: blue; }
+        .green-text { color: green; }
+    </style>
+</head>
+<body>
+
+    <div class="box red-text" data-color="red">빨강</div>
+    <div class="box blue-text" data-color="blue">파랑</div>
+    <div class="box green-text" data-color="green">초록</div>
+
+    <script>
+        // 모든 상자를 선택
+        const boxes = document.querySelectorAll('.box');
+
+        boxes.forEach(box => {
+            box.addEventListener('click', function() {
+                // data-color 속성에서 선택된 색상을 가져옴
+                const selectedColor = this.getAttribute('data-color');
+                // 클릭한 상자의 배경색을 선택된 색상으로 변경
+                this.style.backgroundColor = selectedColor;
+                // 클릭한 상자의 텍스트 색상을 흰색으로 변경
+                this.style.color = 'white';
+            });
+        });
+    </script>
+
+</body>
+</html>

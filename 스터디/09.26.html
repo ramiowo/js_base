@@ -10,23 +10,23 @@
 
     <div class="like">
         <i class="fa-regular fa-heart"></i>
-        <div class="likes"></div>
+        <div class="likes">좋아요</div>
+        <div class="number">0</div>
     </div>
 
     <script>
-
-
-
+ 
         const likeEl = document.querySelector('.like');
+        const numEl = document.querySelector('.number');
+        let num = 0;
 
-        for(let i = 0; i < likeEl.length; i++){
-                const clickhandler = (e) => {
-                    likeEl.innerHTML(`좋아요${i}`);
-            }
-            
+        const clickhandler = () => {
+            numEl.innerText = `${num++}`
         }
+        
+        likeEl.addEventListener('click',clickhandler)
 
-        likeEl.addEventListener('click', clickhandler);
+        
 
         
 

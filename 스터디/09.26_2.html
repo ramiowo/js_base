@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .wrap{
+            width: 500px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .color{
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+</head>
+<body>
+    
+    <ul class="wrap">
+        <li class="color color_r">빨강</li>
+        <li class="color color_b">파랑</li>
+        <li class="color color_g">초록</li>
+    </ul>
+
+    <script>
+        const wrapEl = document.querySelector('.wrap');
+        const redEl = document.querySelector('.color_r');
+        const blueEl = document.querySelector('.color_b');
+        const greenEl = document.querySelector('.color_g');
+
+
+        const colorEl = [
+            {
+                id:redEl,
+                color:'red'
+            },
+            {
+                id:blueEl,
+                color:':blue'
+            },
+            {
+                id:greenEl,
+                color:'green'
+            }
+        ]
+
+        
+        redEl.addEventListener('click', () => {
+            redEl.style.backgroundColor = "red";
+        });
+        blueEl.addEventListener('click', () => {
+            blueEl.style.backgroundColor = "blue";
+        });
+        greenEl.addEventListener('click', () => {
+            greenEl.style.backgroundColor = "green";
+        });
+
+        
+
+
+
+        
+        
+
+    </script>
+</body>
+</html>

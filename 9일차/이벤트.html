@@ -46,19 +46,20 @@
         const numEl = document.querySelector(".number");
         let num = 0;
         
-        // likeEl.addEventListener("click", () => {
-        //     // likeEl.style.backgroundColor = "lightgray"
-        //     numEl.innerText = num++;
-        // });
-
-        const clickHandler = () => {
+        likeEl.addEventListener("click", () => {
+            likeEl.style.backgroundColor = "lightgray"
             numEl.innerText = num++;
-        };
+        });
+
+        // const clickHandler = () => {
+        //     numEl.innerText = num++;
+        // };
+
         // =>화살표 함수는 반환값이 한줄일때 중괄호 생략 가능 자동 리턴 
         // const clickHandler = () => numEl.innerText = num++;
 
 
-        likeEl.addEventListener("click", clickHandler);
+        // likeEl.addEventListener("click", clickHandler);
 
 
     </script>
