@@ -132,7 +132,8 @@ const userList = [
                 like:0,
                 subText:`아....이놈의 인기란`
                 
-            }
+            },
+          
         ];
 
         const wrapEl = document.querySelector('.wrap');
@@ -192,6 +193,9 @@ const userList = [
 
 
         likeIcon.addEventListener('click', function () {
+
+        // likeIcon.classList.toggle('fa-solid');
+        // likeIcon.classList.toggle('fa-regular');
 
         if (likeIcon.classList.contains('fa-solid')) {
             userList[i].like--;  

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+
+
+        <style>
+            *{
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            .wrap{
+                width: 100%;
+                height: 100vh;
+            }
+
+            .con{
+                width: 500px;
+                height: 450px;
+                border-radius: 10px;
+                border: 2px solid rgba(214, 214, 214, 0.5);
+                margin: 0 auto;
+                margin-bottom: 30px;
+            }
+
+            .profile{
+                width: 500px;
+                height: 65px;
+                display: flex;
+                justify-content: left;
+                align-items: center;
+                font-size: 20px;
+                font-weight: 600;
+                color: #313131;
+            }
+
+            .profile_img{
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                margin: 0 20px 0 20px;
+                object-fit: cover;
+            }
+
+            .feed_img{
+                width: 496px;
+                height: 260px;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            
+            .like{
+                width: 100%;
+                height: 65px;
+                display: flex;
+                align-items: center;
+            }
+
+            .footer span{
+                font-size: 17px;
+                font-weight: 600;
+            }
+
+            .like i{
+                margin: 0 10px 0 20px;
+            }
+
+            .fa-solid{
+                margin: 0 10px 0 20px;
+                color: red;
+            }
+
+            .subText_name{
+                font-size: 17px;
+                font-weight: 600;
+            }
+
+            .sub_text{
+                margin-left: 20px;
+            }
+
+        </style>
+</head>
+<body>
+    
+    <div class="wrap"></div>
+
+    <script>
+
+const userList = [
+            {
+                id:0,
+                profileImg: "https://i.namu.wiki/i/01BGGsoIcseAEJ26o4iolmU3I8xTiSZt8fD_vKs20ENbNnXlPAhLczi9YpxA6x0biFVE_NQV9CNWhkJTmee_1g.webp",
+                name:'Totoro',
+                feedImg:"https://i.namu.wiki/i/01BGGsoIcseAEJ26o4iolmU3I8xTiSZt8fD_vKs20ENbNnXlPAhLczi9YpxA6x0biFVE_NQV9CNWhkJTmee_1g.webp",
+                like:250,
+                subText:`친구들이랑 나들이`
+            },
+            {
+                id:1,
+                profileImg:"https://i.pinimg.com/736x/2a/9c/0b/2a9c0bc5aaf2e6c8c26416ad03dcc6cc.jpg",
+                name:'Calcifer',
+                feedImg:"https://mblogthumb-phinf.pstatic.net/MjAxODA1MjdfMTUx/MDAxNTI3NDIzODQ2MDU0.xgp0tOKeaXLfzQe8fAFfeAJLMaZW6Alspf05nMiGRSUg.O6FZJVUUk06jY2Wo4n-Xm180Ak4C25haloH3JsAJTCQg.PNG.polarisians/2.png?type=w800",
+                like:358,
+                subText:`오늘의 요리솜씨`
+            },
+            {
+                id:2,
+                profileImg:"https://kid.chosun.com/site/data/img_dir/2019/06/09/2019060900883_0.jpg",
+                name:'Kiki',
+                feedImg:"https://cphoto.asiae.co.kr/listimglink/1/2023042114592697183_1682056766.jpg",
+                like:195,
+                subText:`빗자루 새로 뽑았어요.`
+            },
+            {
+                id:3,
+                profileImg:"https://i.pinimg.com/236x/b6/f7/ea/b6f7ea16a4c9d63440c749c4f4fda815.jpg",
+                name:'Jiji',
+                feedImg:"https://i.pinimg.com/736x/73/8f/bc/738fbce0702b9d2ce0cc4d963f322221.jpg",
+                like:217,
+                subText:`애옹`
+            },
+            {
+                id:4,
+                profileImg:"https://ojsfile.ohmynews.com/STD_IMG_FILE/2016/0304/IE001931016_STD.jpg", 
+                name:'Gaonasi',
+                feedImg:"https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/4PYu/image/JC9ynRAXPuoHywiIzm9z-MdlDBY.jpeg",
+                like:0,
+                subText:`아....이놈의 인기란`
+                
+            },
+          
+        ];
+
+        const wrapEl = document.querySelector('.wrap');
+
+        for(let i = 0; i < userList.length; i++){
+        
+            const conEl = document.createElement('div');
+            conEl.classList.add('con');
+            wrapEl.append(conEl); 
+    
+            const profileEl = document.createElement('div');
+            profileEl.classList.add('profile');
+            conEl.append(profileEl);
+            profileEl.innerHTML = `<img class = "profile_img" src = "${userList[i].profileImg}" alt = "profile_img"><div>${userList[i].name}</div>`;
+
+            const feedImg = document.createElement('div');
+            feedImg.classList.add('feed_img');
+            conEl.append(feedImg);
+            feedImg.innerHTML = `<img class = "feed_img" src = "${userList[i].feedImg}" alt = "feed_img">`;
+
+            const likeEl = document.createElement('div');
+            likeEl.classList.add('like');
+            conEl.append(likeEl);
+            likeEl.innerHTML = `<i class = "fa-regular fa-heart fa-xl"></i><span>좋아요 ${userList[i].like} 개</span>`;
+
+            const subText = document.createElement('div');
+            subText.classList.add('sub_text');
+            conEl.append(subText);
+
+            const nameSpan = `<span class="subText_name">${userList[i].name}</span>`;
+            subText.innerHTML = `${nameSpan} ${userList[i].subText}`;
+
+
+            
+            const likeIcon = likeEl.querySelector('i');
+            const likeText = likeEl.querySelector('span');
+
+            likeIcon.addEventListener('click', function () {
+
+                // likeIcon.classList.toggle('fa-solid');
+                // likeIcon.classList.toggle('fa-regular');
+
+                if (likeIcon.classList.contains('fa-solid')) {
+                    userList[i].like--;  
+                } else {
+                    userList[i].like++;  
+                };
+
+                likeIcon.classList.toggle('fa-solid');
+                likeIcon.classList.toggle('fa-regular');
+
+                likeText.innerText = `좋아요 ${userList[i].like}개`;
+                });
+
+            feedImg.addEventListener('click', function () {
+
+                if (likeIcon.classList.contains('fa-solid')) {
+                    userList[i].like--;  
+                } else {
+                    userList[i].like++;  
+                };
+
+                likeIcon.classList.toggle('fa-solid');
+                likeIcon.classList.toggle('fa-regular');
+
+                likeText.innerHTML = `좋아요 ${userList[i].like}개`;
+                });
+        
+        }
+
+    </script>
+</body>
+</html>
