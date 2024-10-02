@@ -93,8 +93,10 @@
 </head>
 <body>
     
-    <div class="wrap"></div>
-
+    <div class="wrap">
+        <button class = "addBtn">추가</button>
+    </div>
+        
     <script>
 
 const userList = [
@@ -208,7 +210,32 @@ const userList = [
                 likeText.innerHTML = `좋아요 ${userList[i].like}개`;
                 });
         
-        }
+        };
+
+        const addBtn = document.querySelector('.addBtn');
+
+        addBtn.addEventListener('click', function(){
+            const name = prompt('이름을 입력하세요');
+            const profileImg = prompt('프로필 이미지 URL을 입력하세요');
+            const feedImg = prompt('피드 이미지 URL을 입력하세요');
+            const subText = prompt('서브 텍스트를 입력하세요');
+
+            const newUser = {
+            id: userList.length,
+            profileImg: profileImg , 
+            name: name , 
+            feedImg: feedImg ,
+            like: 0,
+            subText: subText
+        };
+
+        userList.push(newUser);
+
+        });
+
+        document.querySelector('.addBtn').addEventListener('click', addUser);
+
+        
 
     </script>
 </body>

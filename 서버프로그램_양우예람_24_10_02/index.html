@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrap">
+
+        <div class="header">
+            <div class="menu">
+                <div class="menu_1">Stargram</div>
+                <div class="bar_wrap">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
+            <div class="menuText">
+                프로필 설정
+                <i class="fa-solid fa-x closeBox"></i>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+        const userList = [
+            {
+                id:0,
+                name:"Totoro",
+                profileImg:"https://i.namu.wiki/i/01BGGsoIcseAEJ26o4iolmU3I8xTiSZt8fD_vKs20ENbNnXlPAhLczi9YpxA6x0biFVE_NQV9CNWhkJTmee_1g.webp",
+                feedImg:"https://i.namu.wiki/i/01BGGsoIcseAEJ26o4iolmU3I8xTiSZt8fD_vKs20ENbNnXlPAhLczi9YpxA6x0biFVE_NQV9CNWhkJTmee_1g.webp",
+                like:233,
+                subText:"친구들이랑 나들이"
+            },
+            {
+                id:1,
+                name:"Calcifer",
+                profileImg:"https://i.pinimg.com/736x/2a/9c/0b/2a9c0bc5aaf2e6c8c26416ad03dcc6cc.jpg",
+                feedImg:"https://mblogthumb-phinf.pstatic.net/MjAxODA1MjdfMTUx/MDAxNTI3NDIzODQ2MDU0.xgp0tOKeaXLfzQe8fAFfeAJLMaZW6Alspf05nMiGRSUg.O6FZJVUUk06jY2Wo4n-Xm180Ak4C25haloH3JsAJTCQg.PNG.polarisians/2.png?type=w800",
+                like:327,
+                subText:"오늘의 요리실력"
+            },
+            {
+                id:2,
+                name:"Kiki",
+                profileImg:"https://kid.chosun.com/site/data/img_dir/2019/06/09/2019060900883_0.jpg",
+                feedImg:"https://cphoto.asiae.co.kr/listimglink/1/2023042114592697183_1682056766.jpg",
+                like:233,
+                subText:"빗자루 새로 뽑았어요."
+            },
+            {
+                id:3,
+                name:"Jiji",
+                profileImg:"https://i.pinimg.com/236x/b6/f7/ea/b6f7ea16a4c9d63440c749c4f4fda815.jpg",
+                feedImg:"https://i.pinimg.com/736x/73/8f/bc/738fbce0702b9d2ce0cc4d963f322221.jpg",
+                like:233,
+                subText:"친구들이랑 나들이"
+            },
+            {
+                id:4,
+                name:"Gaonasi",
+                profileImg:"https://ojsfile.ohmynews.com/STD_IMG_FILE/2016/0304/IE001931016_STD.jpg",
+                feedImg:"https://img1.daumcdn.net/thumb/R1280x0.fjpg/?fname=http://t1.daumcdn.net/brunch/service/user/4PYu/image/JC9ynRAXPuoHywiIzm9z-MdlDBY.jpeg",
+                like:233,
+                subText:"친구들이랑 나들이"
+            },
+          
+        ];
+
+        const wrapEl = document.querySelector('.wrap');
+
+        menuEl = document.querySelector('.bar_wrap');
+        textEl = document.querySelector('.menuText');
+        closeEl = document.querySelector('.closeBox')
+
+        menuEl.addEventListener("click", function(){
+            textEl.style.display = "block";
+        });
+
+        closeEl.addEventListener('click', function(){
+            textEl.style.display = "none";
+        })
+
+        
+        
+        for(let i = 0; i < userList.length; i++){
+
+            const conEl = document.createElement('div');
+            conEl.classList.add('con');
+            wrapEl.append(conEl);
+
+            const profileEl = document.createElement('div');
+            profileEl.classList.add('profile');
+            conEl.append(profileEl);
+            profileEl.innerHTML = `<img class = "profileImg" src = "${userList[i].profileImg}" alt = "profileImg"><div>${userList[i].name}</div>`;
+            
+            const feedImg = document.createElement('div');
+            feedImg.classList.add('feedImg');
+            conEl.append(feedImg);
+            feedImg.innerHTML = `<img class = "feedImg" src = "${userList[i].feedImg}" alt = "feedImg">`;
+
+            const likeEl = document.createElement('div');
+            likeEl.classList.add('like');
+            conEl.append(likeEl);
+            likeEl.innerHTML = `<i class = "fa-regular fa-heart fa-xl"></i> <span>좋아요 ${userList[i].like} 개</span>`
+
+            const subText = document.createElement('div');
+            subText.classList.add('subText');
+            conEl.append(subText);
+
+            const nameSpan = `<span class="subText_name">${userList[i].name}</span>`;
+            subText.innerHTML = `${nameSpan} ${userList[i].subText}`;
+
+            
+            const likeIcon = likeEl.querySelector('i');
+            const likeText = likeEl.querySelector('span');
+
+           likeIcon.addEventListener("click", function(){
+            if(likeIcon.classList.contains('fa-solid')){
+                userList[i].like--;
+            }else{
+                userList[i].like++;
+            }
+
+            likeIcon.classList.toggle('fa-solid');
+            likeIcon.classList.toggle('fa-regular');
+
+            likeText.innerText = `좋아요 ${userList[i].like} 개`;
+           });
+
+           feedImg.addEventListener("click", function(){
+            if(likeIcon.classList.contains('fa-solid')){
+                userList[i].like--;
+            }else{
+                userList[i].like++;
+            }
+
+            likeIcon.classList.toggle('fa-solid');
+            likeIcon.classList.toggle('fa-regular');
+
+            likeText.innerText = `좋아요 ${userList[i].like} 개`;
+           });
+           
+        };
+    </script>
+
+</body>
+</html>
