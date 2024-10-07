@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+           *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        header{
+            height: 100px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #fff;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .progress{
+            height: 10px;
+            background-color: lightslategray;
+        }
+
+        .bar{
+            width: 0%;
+            height: 100%;
+            background-color: rgb(55, 84, 114);
+        }
+
+        section{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        section h3{
+            font-size: 50px;
+        }
+
+        .section_1{
+            background-color: lightskyblue;
+        }
+
+        .section_2{
+            padding: 100px 0;
+            display: block;
+        }
+        .con_wrap{
+            padding: 100px 250px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .title{
+            text-align: center;
+            margin-bottom: 30px;
+            transform: translateY(150px);
+            opacity: 0;
+            transition: 0.5s;
+        }
+
+        .title_active{
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .con{
+            width: 32%;
+            height: 500px;
+            background-color: lightslategray;
+        }
+
+        .section_3{
+            height: 700px;
+            background-color: lightslategray;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+        <header>
+            <div class="progress">
+                <div class="bar"></div>
+            </div>
+        </header>
+
+        <section class="section_1">
+            <h3>section</h3>
+        </section>
+
+        <section class="section_2">
+            <h3 class="title">section title</h3>
+            <div class="con_wrap">
+                <div class="con"></div>
+                <div class="con"></div>
+                <div class="con"></div>
+            </div>
+        </section>
+
+        <section class="section_3">
+            <h3>section</h3>
+        </section>
+        
+    </div>
+
+    <script>
+
+        // const wrapEl = document.querySelector('.wrap');
+        // const barEl = document.querySelector('.bar');
+        // const progressEl = document.querySelector('.progress');
+        // console.log(progressEl.offsetWidth);
+
+        // scrollHandle = () => {
+        //     const pageY = pageYOffset;
+        //     const pageX = progressEl.offsetWidth;
+        //     // console.log(pageY)
+
+        //     barEl.style.width =  `${pageY * 10}%`
+
+        // }
+
+        // window.addEventListener('scroll', scrollHandle);
+
+
+
+        const wrapEl = document.querySelector('.wrap');
+        const barEl = document.querySelector('.bar');
+        
+
+        const handleScroll = () => {
+            const pageY = pageYOffset;
+            const wrapElHeight = wrapEl.offsetHeight;
+            // =>wrap의 높이값
+            const useScroll= wrapElHeight - window.innerHeight;
+            const result = (pageY / useScroll) * 100;
+
+            // console.log(`wrap의 높이값 : ${wrapElHeight}`);
+            // console.log(`브라우저 높이값 : ${window.innerHeight}`);
+            // console.log(wrapElHeight - window.innerHeight);
+            // =>전체높이 - 브라우저의 높이= 순수 사용할수 있는 높이값
+
+            barEl.style.width = `${result}%`
+
+        }
+
+        window.addEventListener('scroll', handleScroll);
+
+
+    </script>
+    
+</body>
+</html>
