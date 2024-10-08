@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        input{
+            all: unset;
+            width: 30%;
+            height: 50px;
+            border: 1px solid #dbdbdb;
+            border-radius: 10px;
+            margin:50px 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .serchValue{
+            padding: 30px 50px;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <form>
+        <input type="text" placeholder="title" >
+        <div class="serchValue">
+        </div>
+    </form>
+
+    <script>
+
+        const formEl = document.querySelector('form');
+        const inputEl = document.querySelector('input');
+        const valueEl = document.querySelector('.serchValue');
+
+        const movies = [
+            {
+                id: 0,
+                title: "조커2",
+                desc: "조커 영화 입니다"
+            },
+            {
+                id: 1,
+                title: "보보보",
+                desc: "무적 코털 보보보 입니다"
+            },
+            {
+                id: 2,
+                title: "따따베",
+                desc: "따끈따끈 베이커리"
+            },
+            {
+                id:3,
+                title: "하울의움직이는성",
+                desc:"캐시퍼가 왕기여움"
+            }
+        ];
+
+        const handleSubmit = (e) => {
+           e.preventDefault();
+           const serchInput = inputEl.value;
+           const result = movies.filter((movie) => movie.title === serchInput);
+           valueEl.innerHTML = `<h2>${result[0].title}</h2> <div>${result[0].desc}</div>`
+        };
+
+        formEl.addEventListener("submit", handleSubmit);
+
+        
+
+
+
+
+    </script>
+    
+</body>
+</html>

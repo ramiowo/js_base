@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+
+        const movies = [
+            {
+                id: 0,
+                title: "조커2",
+                desc: "조커 영화 입니다"
+            },
+            {
+                id: 1,
+                title: "보보보",
+                desc: "무적 코털 보보보 입니다"
+            },
+            {
+                id: 2,
+                title: "따따베",
+                desc: "따끈따끈 베이커리"
+            }
+        ];
+
+        // *filter()
+        // =>배열의 내용을 가져와서 원하는 값을 필터하여 반환함
+        // =>배열이기 때문에배열로 반환함
+
+        const result = movies.filter((a) => a.title === "보보보");
+        console.log(result);
+
+    </script>
+    
+</body>
+</html>
