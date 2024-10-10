@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button>삭제</button>
+    
+    <script>
+
+        const btnEl = document.querySelector("button");
+
+        // *localStorage
+        // =>브라우저에 정보를 저장하는 저장소
+        // =>간단한 내용을 저장해야되며, 노출되면 안되는 정보는 절대로 저장해선 안됨
+
+        localStorage.setItem("name", "양우예람");
+        // =>로컬스토리지에 데이터를 저장함;
+        // =>localStorage.setItem(key, value);
+
+        const getName = localStorage.getItem("name");
+        // =>로컬스토리지에 저장된 내용을 가져옴
+        // =>가져올 데이터는 반드시 key명을 작성하여 가져와야함
+
+        document.write(getName);
+
+        const handleRemove = () => {
+            localStorage.removeItem("name");
+            // =>선택한 로컬스토리지 key값을 제거함
+            window.location.reload();
+            // =>페이지를 새로고침함
+        }
+
+        btnEl.addEventListener('click', handleRemove);
+    </script>
+
+</body>
+</html>

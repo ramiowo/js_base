@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .con{
+            width: 450px;
+            margin: 0 auto;
+            border: 1px solid #dbdbdb;
+        }
+
+        .bg{
+            height: 400px;
+            background-color: lightgray;
+        }
+
+        .title_wrap{
+            padding: 15px;
+        }
+
+        .title{
+            font-size: 26px;
+            font-weight: 900;
+            margin-bottom: 20px;
+        }
+
+        .dark_btn{
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        body.dark_active{
+            background-color: #1d1d1d;
+        }
+
+        body.dark_active .con{
+            border-color: #333;
+        }
+
+        body.dark_active .title{
+            color: #fff;
+        }
+
+        .fa-lightbulb{
+            color: #fff;
+        }
+    </style>
+</head> 
+<body>
+    
+    <div class="con">
+        <div class="bg"></div>
+        <div class="title_wrap">
+            <div class="title">Contents title</div>
+            <div class="dark_btn">
+                <i class="fa-solid fa-moon"></i>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        const darkBtnEl = document.querySelector('.dark_btn');
+        const getDark = localStorage.getItem("DARK_MODE");
+        const light = () => {
+            document.body.classList.add("dark_active");
+            darkBtnEl.innerHTML = '<i class="fa-sharp fa-solid fa-lightbulb"></i>';
+        }
+
+        if(getDark === "on"){
+            light();
+        }
+
+
+        const handleDark = () => {
+            const getDark = localStorage.getItem("DARK_MODE");
+            if(getDark === null){
+                localStorage.setItem("DARK_MODE", "on");
+                light();
+            }else if(getDark === "on"){
+                localStorage.removeItem("DARK_MODE", "on");
+                document.body.classList.remove("dark_active");
+                darkBtnEl.innerHTML = '<i class="fa-solid fa-moon"></i>';
+            }
+        };
+
+        darkBtnEl.addEventListener('click', handleDark);
+
+    </script>
+
+</body>
+</html>

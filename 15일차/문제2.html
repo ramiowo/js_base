@@ -34,16 +34,19 @@
 <body>
 
     <form>
-        <input type="text" placeholder="title" >
-        <div class="serchValue">
-        </div>
+        <input type="text" placeholder="제목 검색" >
     </form>
+
+    <h2 class="title"></h2>
+    <div class="desc"></div>
 
     <script>
 
         const formEl = document.querySelector('form');
         const inputEl = document.querySelector('input');
         const valueEl = document.querySelector('.serchValue');
+        const titleEl = document.querySelector('.title');
+        const descEl = document.querySelector('.desc');
 
         const movies = [
             {
@@ -72,7 +75,16 @@
            e.preventDefault();
            const serchInput = inputEl.value;
            const result = movies.filter((movie) => movie.title === serchInput);
-           valueEl.innerHTML = `<h2>${result[0].title}</h2> <div>${result[0].desc}</div>`
+        //    titleEl.innerText = `<h2>제목 : ${result[0].title}</h2>`;
+        //    descEl.innerText = `내용 : ${result[0].desc}`;
+
+           if(result.length !== 0){
+            titleEl.innerText = `제목 : ${result[0].title}`;
+            descEl.innerText = `내용 : ${result[0].desc}`;
+           }else{
+            titleEl.innerText = `찾으시는${serchInput}가 없습니다.`;
+            descEl.innerText = ``;
+           }
         };
 
         formEl.addEventListener("submit", handleSubmit);
