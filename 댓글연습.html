@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>댓글 작성 예제</title>
+</head>
+<body>
+    <div id="commentSection">
+        <h2>댓글 작성</h2>
+        <textarea id="commentInput" rows="4" cols="50" placeholder="댓글을 입력하세요..."></textarea><br>
+        <button id="submitComment">댓글 남기기</button>
+        <div id="commentList">
+            <h3>댓글 목록</h3>
+            <ul id="comments">
+                <!-- 댓글이 여기에 추가됩니다 -->
+            </ul>
+        </div>
+    </div>
+
+    <script>
+
+        // 댓글을 로컬 스토리지에 저장하는 함수
+function saveComment(comment) {
+    let commentIndex = localStorage.getItem('commentIndex'); // 저장된 댓글 개수
+    if (!commentIndex) {
+        commentIndex = 0;
+    }
+
+    // 댓글을 각각 'comment_0', 'comment_1' 이런 형식으로 저장
+    localStorage.setItem(`comment_${commentIndex}`, comment);
+    commentIndex++; // 다음 댓글의 인덱스 증가
+    localStorage.setItem('commentIndex', commentIndex); // 새로운 인덱스를 저장
+}
+
+// 페이지가 로드될 때 로컬 스토리지에서 댓글을 불러오는 함수
+function loadComments() {
+    let commentIndex = localStorage.getItem('commentIndex'); // 저장된 댓글 개수 가져오기
+    if (!commentIndex) {
+        commentIndex = 0;
+    }
+
+    const commentList = document.getElementById("comments");
+
+    // 저장된 댓글을 하나씩 불러오기
+    for (let i = 0; i < commentIndex; i++) {
+        const comment = localStorage.getItem(`comment_${i}`);
+        if (comment) {
+            const newComment = document.createElement("li");
+            newComment.textContent = comment;
+            commentList.appendChild(newComment);
+        }
+    }
+}
+
+document.getElementById("submitComment").addEventListener("click", function() {
+    const commentInput = document.getElementById("commentInput");
+    const commentList = document.getElementById("comments");
+
+    const newCommentText = commentInput.value.trim();
+
+    if (newCommentText !== "") {
+        const newComment = document.createElement("li");
+        newComment.textContent = newCommentText;
+
+        // 화면에 댓글 추가
+        commentList.appendChild(newComment);
+
+        // 로컬 스토리지에 댓글 저장
+        saveComment(newCommentText);
+
+        // 입력란 비우기
+        commentInput.value = "";
+    } else {
+        alert("댓글을 입력해주세요.");
+    }
+});
+
+// 페이지 로드 시 기존 댓글을 불러오기
+window.onload = function() {
+    loadComments();
+};
+
+    </script>
+</body>
+</html>

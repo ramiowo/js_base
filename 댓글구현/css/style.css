@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul,li{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: #555;
+}
+
+img{
+    width: 100%;
+    display: block;
+}
+
+.wrap{
+    max-width: 450px;
+    width: 100%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.con{
+    background-color: #f1f1f1;
+    margin-top: 35px;
+    padding: 20px;
+}
+
+.user_info{
+    display: flex;
+    align-items: center;
+    
+}
+
+.avatar{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: lightslategray;
+    margin-right: 15px;
+    overflow: hidden;
+}
+
+.bg{
+    height: 300px;
+    background-color: lightslategray;
+    margin: 20px 0;
+}
+
+.bg img{
+    height: 100%;
+    object-fit: cover;
+    /* =>이미지 태그를배경 이미지처럼 가득 채울때 사용(잘려나가는 영역이 생김) */
+}
+
+.heart{
+    font-size: 20px;
+    color: #555;
+    cursor: pointer;
+}
+
+.comment{
+    width: 100%;
+    margin: 20px 0;
+}
