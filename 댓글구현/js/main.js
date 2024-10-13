@@ -17,7 +17,7 @@ const saveComment = (comment) => {
     let comments = storageComments ? JSON.parse(storageComments) : [];
     comments.push(comment);
     localStorage.setItem("comments", JSON.stringify(comments));
-    console.log("Saved comments: ", localStorage.getItem("comments"));
+    // console.log("Saved comments: ", localStorage.getItem("comments"));
 }
 
 const submitBtn = document.querySelector(".submitButton");

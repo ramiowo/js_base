@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>댓글 기능</title>
+</head>
+<body>
+    <h1>댓글 달기</h1>
+    <form id="commentForm">
+        <input type="text" id="commentInput" placeholder="댓글을 입력하세요">
+        <button type="submit">댓글 등록</button>
+    </form>
+    <ul id="commentList"></ul>
+
+    <script>
+        document.getElementById('commentForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // 폼이 제출되는 기본 동작 막기
+
+            const commentInput = document.getElementById('commentInput');
+            const commentText = commentInput.value;
+
+            if (!commentText) return;
+
+            let comments = JSON.parse(localStorage.getItem('comments')) || [];
+            comments.push(commentText);
+            localStorage.setItem('comments', JSON.stringify(comments));
+
+            addCommentToList(commentText);
+            commentInput.value = '';
+        });
+
+        function addCommentToList(comment) {
+            const commentList = document.getElementById('commentList');
+            const newComment = document.createElement('li');
+            newComment.textContent = comment;
+            commentList.appendChild(newComment);
+        }
+
+        window.addEventListener('load', function() {
+            let comments = JSON.parse(localStorage.getItem('comments')) || [];
+            comments.forEach(function(comment) {
+                addCommentToList(comment);
+            });
+        });
+    </script>
+</body>
+</html>
