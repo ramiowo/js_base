@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .con{
+            max-width: 450px;
+            width: 100%;
+            margin: 0 auto;
+            border: 1px solid #dbdbdb;
+        }
+
+        .bg{
+            height: 400px;
+            background-color: lightgray;
+        }
+
+        input{
+            all: unset;
+            padding: 10px;
+            box-sizing: border-box;
+            width: 100%;;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="con">
+            <div class="bg"></div>
+            <form>
+                <input type="text" placeholder="댓글을 입력해주세요.">
+            </form>
+            <div class="comment_wrap"></div>
+        </div>
+    </div>
+
+    <script>
+
+        const formEl = document.querySelector('form');
+        const inputEl = document.querySelector('input');
+        const commentWrapEl =document.querySelector('.comment_wrap');
+
+        const handleSubmit = (e) => {
+            e.preventDefault();
+            const inputValue = inputEl.value;
+            const commentEl = document.createElement('p');
+            commentEl.classList.add('hi');
+            commentEl.innerText = inputValue;
+            commentWrapEl.appendChild(commentEl);
+            inputEl.value = ''; 
+        }
+
+        formEl.addEventListener('submit', handleSubmit);
+    </script>
+</body>
+</html>
